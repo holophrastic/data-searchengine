@@ -89,6 +89,24 @@ has facets => (
     }
 );
 
+=attr fields
+
+The fields to return.  Some search engine backends allow you to only return
+part of a document.
+
+=method has_fields
+
+Returns true if this query has fields specified.
+
+=cut
+
+has fields => (
+    traits => [qw(Digestable)],
+    is => 'rw',
+    isa => 'Str|ArrayRef[Str]',
+    predicate => 'has_fields'
+);
+
 =attr filters
 
 A HashRef of filters used with the query.  The key should be the filter name
